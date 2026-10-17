@@ -5,6 +5,12 @@ Every case records the model ID, the verbatim prompt, and the verbatim model out
 (outputs were capped at 1500 tokens; truncation is marked). Critiques follow the
 5-dimension rubric in the main README.
 
+> **Provenance note (Oct 2026):** cases R1–R8 were produced with AI assistance —
+> prompts were designed and critiques drafted by an AI assistant working from
+> verified reference standards; model outputs are verbatim, documented with
+> model IDs and dates. Independent expert review and authorial cases will be
+> added as this log grows.
+
 - **Model A:** `anthropic/claude-opus-5.5` (provider: "Claude Platform on AWS")
 - **Model B:** `google/gemini-2.5-flash`
 

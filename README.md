@@ -34,21 +34,9 @@ When auditing AI-generated biological and clinical content, errors are categoriz
 
 ## 3. Worked RLHF Evaluation Examples (Prompt -> Model Critique -> Gold Standard)
 
-### Case Study A: Microbiology & Drug Discovery (MIC50 Assay Protocol)
-* **User Prompt:** *“Explain how to determine the MIC50 of a novel protein synthesis inhibitor against multidrug-resistant E. coli using a 96-well broth microdilution assay.”*
-* **Flawed LLM Output (Summary):** The model correctly describes 2-fold serial dilutions of the test compound in Mueller-Hinton broth but defines **MIC50** as *“the concentration that reduces bacterial growth (OD600) by 50% in a single strain replicate”* and omits inoculum standardization.
-* **Expert Ph.D. Critique (RLHF Feedback):**
-  * **Severity:** Major Scientific Error (Terminology Conflation).
-  * **Reasoning:** The model conflated **IC50** (half-maximal inhibitory concentration in a single dose-response curve) with **MIC50** (the Minimum Inhibitory Concentration required to inhibit 50% of *tested bacterial isolates* in a panel). Furthermore, the assay requires cation-adjusted Mueller-Hinton broth (CAMHB) with a standardized final inoculum of ~5×10⁵ CFU/mL per well (0.5 McFarland is only the intermediate turbidity standard); omitting inoculum standardization invalidates the assay under CLSI M07/M100 and ISO 20776-1 / EUCAST.
-* **Gold-Standard Rewrite:** Explicitly differentiates population-level MIC50 from single-strain IC50, specifies CAMHB with a final inoculum of ~5×10⁵ CFU/mL per well, defines MIC as the absence of visible growth (not a 50% OD600 reduction), and mandates sterility (media-only) and growth (untreated bacteria) control wells.
+Real evaluation cases with verbatim model outputs are logged in [EVALUATION_LOG.md](EVALUATION_LOG.md) — 6 cases and counting, covering microbiology, aquatic ecology (EN/RU), and antibacterial drug discovery, with pairwise model comparisons and a documented over-refusal finding.
 
-### Case Study B: Aquatic Ecology & Environmental Monitoring (Bioindication of Water Quality)
-* **User Prompt:** *“Why are periphytic algal communities (including epiphyton) preferred over phytoplankton for localized point-source pollution monitoring in fast-flowing rivers?”*
-* **Flawed LLM Output (Summary):** Claims that phytoplankton and periphyton provide identical spatial resolution in river monitoring because *“both algal groups drift with the water current and absorb nutrients at the same rate.”*
-* **Expert Ph.D. Critique (RLHF Feedback):**
-  * **Severity:** Critical Ecological Hallucination.
-  * **Reasoning:** The model fundamentally misunderstood the ecology of lotic (flowing-water) systems. **Phytoplankton** are free-floating organisms transported downstream by water currents, meaning a sample reflects upstream conditions rather than the specific sampling site. In contrast, **periphyton** (algal communities attached to submerged substrates), including **epiphyton** (the subset growing on macrophytes such as *Potamogeton*) are sessile and stationary. Therefore, epiphyton diatom and multi-taxon assemblages serve as reliable site-specific bioindicators that integrate local water quality and eutrophication trends over time.
-* **Gold-Standard Rewrite:** Clearly contrasts sessile benthic/epiphytic communities with transient riverine phytoplankton and explains how multi-taxon periphyton analysis is used to calculate saprobic and ecological water quality indices.
+Each case follows the 5-dimension rubric: prompt → verbatim output → structured critique → scored verdict.
 
 ---
 

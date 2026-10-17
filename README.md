@@ -56,7 +56,7 @@ Bio-evaluation must catch two opposite failures: **under-refusal** (uplift towar
 **No security through obscurity in evaluation.** The value of this rubric is showing *where the line is* and whether a model holds it — with logged, reproducible cases — not in hiding the existence of the line.
 
 ## Contact & Credentials
-* **Rigjita Baldanova, Ph.D.** — [LinkedIn](https://linkedin.com/in/rigjita-baldanova) | `b2b@genesis-agency.com`
+* **Rigjita Baldanova, Ph.D.** — [LinkedIn](https://linkedin.com/in/rigjita-baldanova)
 * **Certifications:** 6 Google Certifications in Prompt Engineering & Generative AI | Gemini Certified Educator | GMP/GLP & CLIA/CAP Experience
 
 ---
